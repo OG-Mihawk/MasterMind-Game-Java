@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Modele {
@@ -33,16 +34,26 @@ public class Modele {
     }
     public void combinaison()
     {
-
+        Color[] couleurs = new Color[DIFFICULTE];
         Random randomizer = new Random();
-        for (int i =0;i<Modele.DIFFICULTE;i++)
+        for (int i =0;i<DIFFICULTE;i++)
         {
-
+            couleurs[i] = this.COULEURS[randomizer.nextInt(this.COULEURS.length)];
         }
+        combinaison = new Rangée(couleurs);
     }
     public void archiver_proposition()
     {
 
+    }
+    Modele(int difficulté)
+    {
+        this.DIFFICULTE = difficulté;
+    }
+    public static void main(String[] args) {
+        Modele a = new Modele(5);
+        a.combinaison();
+        System.out.println(a.combinaison);
     }
 
 
