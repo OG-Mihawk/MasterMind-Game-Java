@@ -12,6 +12,30 @@ public class Modele {
     Rangée combinaison;
     Rangée[] proposition;
     int tentatives;
+    public void historique_des_propositions()
+    {
+
+    }
+    public void evaluer_propositions()
+    {
+
+    }
+    public void completer_propositions()
+    {
+
+    }
+    public void demarrer_propositions()
+    {
+
+    }
+    public void combinaison()
+    {
+
+    }
+    public void archiver_proposition()
+    {
+
+    }
 
 
 
