@@ -4,5 +4,5 @@ public class Rangée {
     int indiceJeton;
     int noirs;
     int blancs;
-    
+
 }
