@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Modele {
@@ -13,32 +12,49 @@ public class Modele {
     };
     Etat état;
     Rangée combinaison;
-    ArrayList<Rangée> proposition;
+    ArrayList<Rangée> proposition =  new ArrayList<>();
+    Rangée proposer;
+    Color[] couleurs_choisi = new Color[DIFFICULTE];
+    int indice_tableau_couleurs_choisi = 0;
+    Random randomizer = new Random();
+    int proposition_en_cours = 0;
     int tentatives;
-    public void historique_des_propositions(Rangée proposer)
+    public ArrayList historique_des_propositions()
 
     {
-        proposition.add(proposer);
 
+        return this.proposition;
     }
     public void evaluer_propositions()
     {
-    }
-    public void completer_propositions()
-    {
 
     }
-    public void demarrer_propositions()
+    public void completer_propositions(Color[] couleur)
     {
+        this.couleurs_choisi = couleur;
+        this.indice_tableau_couleurs_choisi++;
+        if (indice_tableau_couleurs_choisi == DIFFICULTE)
+        {
+            this.proposer = new Rangée(this.couleurs_choisi);
+            this.proposition.add(proposer);
 
+            demarrer_nouvelle_propositions();
+        }
+    }
+    public void demarrer_nouvelle_propositions()
+    {
+            this.proposition_en_cours++;
+            this.couleurs_choisi = new Color[DIFFICULTE];
+            this.indice_tableau_couleurs_choisi = 0;
+            this.proposer = null;
     }
     public void combinaison()
     {
         Color[] couleurs = new Color[DIFFICULTE];
-        Random randomizer = new Random();
+
         for (int i =0;i<DIFFICULTE;i++)
         {
-            couleurs[i] = this.COULEURS[randomizer.nextInt(this.COULEURS.length)];
+            couleurs[i] = this.COULEURS[this.randomizer.nextInt(this.COULEURS.length)];
         }
         combinaison = new Rangée(couleurs);
     }
@@ -49,11 +65,29 @@ public class Modele {
     Modele(int difficulté)
     {
         this.DIFFICULTE = difficulté;
+        this.état = Etat.EN_COURS;
     }
     public static void main(String[] args) {
         Modele a = new Modele(5);
         a.combinaison();
-        System.out.println(a.combinaison);
+        Color[] test = new Color[a.DIFFICULTE];
+        for (int i = 0;i<a.DIFFICULTE;i++)
+        {
+
+            Color couleur = a.COULEURS[a.randomizer.nextInt(a.COULEURS.length)];
+            test[i] = couleur;
+            a.completer_propositions(test);
+
+        }
+        for (int i = 0;i<a.DIFFICULTE;i++)
+        {
+
+            Color couleur = a.COULEURS[a.randomizer.nextInt(a.COULEURS.length)];
+            test[i] = couleur;
+            a.completer_propositions(test);
+
+        }
+        System.out.println(a.proposition);
     }
 
 
