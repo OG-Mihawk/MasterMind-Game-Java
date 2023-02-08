@@ -11,6 +11,7 @@ public class Vue extends JFrame implements WindowListener {
         this.add(clavier, BorderLayout.SOUTH);
         this.setTitle("MasterMind");
         this.setSize(300,600);
+        this.setResizable(false);
         this.setVisible(true);
     }
 

@@ -3,8 +3,10 @@ import java.awt.*;
 public class VueClavier extends Panel {
 
     public VueClavier(){
-        this.setLayout(new FlowLayout());
-        Button boutton = new Button("b");
-        this.add(boutton);
+        for (Color couleur : Modele.COULEURS) {
+            Button button = new Button();
+            button.setBackground(couleur);
+            this.add(button);
+        }
     }
 }
