@@ -8,6 +8,7 @@ public class Vue extends JFrame implements WindowListener {
     public Vue(){
         VueClavier clavier = new VueClavier();
         this.setLayout(new BorderLayout());
+        addWindowListener(this);
         this.add(clavier, BorderLayout.SOUTH);
         this.setTitle("MasterMind");
         this.setSize(300,600);
