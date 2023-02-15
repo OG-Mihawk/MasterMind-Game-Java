@@ -3,30 +3,53 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Modele {
+    //Toutes les couleurs disponibles
     public static Color[] COULEURS = {Color.YELLOW, Color.GREEN,Color.BLUE,Color.MAGENTA,Color.RED,Color.ORANGE,Color.WHITE,Color.BLACK};
-    int N_TENTATIVES;
+    //Nombre maximum de tentative
+    int NBR_MAX_TENTATIVES;
+    //Nombre de couleurs à trouver
     public static  int DIFFICULTE;
-
+    //Etat du jeu
     enum Etat {
         EN_COURS,GAGNÉ,PERDU
     };
+
     Etat état;
+    //Combinaison à trouver
     Rangée combinaison;
+    //Historique des propositions
     ArrayList<Rangée> proposition =  new ArrayList<>();
+    //Proposition en cours
     Rangée proposer;
+    //Couleurs choisies pour la proposition en cours
     Color[] couleurs_choisi = new Color[DIFFICULTE];
+    //Indice du tableau des couleurs choisies
     int indice_tableau_couleurs_choisi = 0;
     Random randomizer = new Random();
+    //Proposition en cours
     int proposition_en_cours = 0;
+    //Nombre de tentatives
     int tentatives;
+
+    ArrayList<Integer> resultat = new ArrayList<>();
+    /**
+     * Historique des propositions
+     * @return ArrayList : Historique des propositions
+     */
     public ArrayList historique_des_propositions()
 
     {
 
         return this.proposition;
     }
-    public String evaluer_propositions()
+
+    /**
+     * Permet de savoir le nombre de réponses correctes et incorrectes
+     * @return
+     */
+    public ArrayList<Integer> evaluer_propositions()
     {
+        ArrayList<Integer> resultat = new ArrayList<>();
         int bien_placé = 0;
         int mal_placé = 0;
         for (int i = 0;i<DIFFICULTE;i++)
@@ -40,8 +63,15 @@ public class Modele {
                 mal_placé++;
             }
         }
-        return bien_placé +" "+ mal_placé;
+        resultat.add(bien_placé);
+        resultat.add(mal_placé);
+        this.resultat = resultat;
+        return resultat;
     }
+    /**
+     * Fonction qui permet de completer les propositions en ajoutant une couleur à adapter avec le click.
+     * Retourne rien.
+     */
     public void completer_propositions(Color[] couleur)
     {
         this.couleurs_choisi = couleur;
@@ -50,10 +80,14 @@ public class Modele {
         {
             this.proposer = new Rangée(this.couleurs_choisi);
             this.proposition.add(proposer);
-            System.out.println(evaluer_propositions());
+            evaluer_propositions();
             demarrer_nouvelle_propositions();
         }
     }
+    /**
+     * Fonction qui permet de démarrer une nouvelle proposition
+     * Réniitialise les variables
+     */
     public void demarrer_nouvelle_propositions()
     {
             this.proposition_en_cours++;
@@ -61,6 +95,11 @@ public class Modele {
             this.indice_tableau_couleurs_choisi = 0;
             this.proposer = null;
     }
+
+    /**
+     * Fonction qui permet de générer une combinaison aléatoire de couleurs à trouver.
+     * Stocker dans
+     */
     public void combinaison()
     {
         Color[] couleurs = new Color[DIFFICULTE];
@@ -69,12 +108,13 @@ public class Modele {
         {
             couleurs[i] = this.COULEURS[this.randomizer.nextInt(this.COULEURS.length)];
         }
-        combinaison = new Rangée(couleurs);
+        this.combinaison = new Rangée(couleurs);
     }
-    public void archiver_proposition()
-    {
 
-    }
+    /**
+     * Constructeur
+     * @param difficulté
+     */
     Modele(int difficulté)
     {
         this.DIFFICULTE = difficulté;
@@ -92,15 +132,7 @@ public class Modele {
             a.completer_propositions(test);
 
         }
-        for (int i = 0;i<a.DIFFICULTE;i++)
-        {
 
-            Color couleur = a.COULEURS[a.randomizer.nextInt(a.COULEURS.length)];
-            test[i] = couleur;
-            a.completer_propositions(test);
-
-        }
-        System.out.println(a.proposition);
     }
 
 
