@@ -80,6 +80,7 @@ public class Modele {
         {
             this.proposer = new Rangée(this.couleurs_choisi);
             this.proposition.add(proposer);
+            this.tentatives++;
             evaluer_propositions();
             demarrer_nouvelle_propositions();
         }
@@ -120,6 +121,59 @@ public class Modele {
         this.DIFFICULTE = difficulté;
         this.état = Etat.EN_COURS;
     }
+    
+    public static Color[] getCOULEURS() {
+        return COULEURS;
+    }
+
+    public int getNBR_MAX_TENTATIVES() {
+        return NBR_MAX_TENTATIVES;
+    }
+
+    public static int getDIFFICULTE() {
+        return DIFFICULTE;
+    }
+
+    public Etat getÉtat() {
+        return état;
+    }
+
+    public Rangée getCombinaison() {
+        return combinaison;
+    }
+
+    public ArrayList<Rangée> getProposition() {
+        return proposition;
+    }
+
+    public Rangée getProposer() {
+        return proposer;
+    }
+
+    public Color[] getCouleurs_choisi() {
+        return couleurs_choisi;
+    }
+
+    public int getIndice_tableau_couleurs_choisi() {
+        return indice_tableau_couleurs_choisi;
+    }
+
+    public Random getRandomizer() {
+        return randomizer;
+    }
+
+    public int getProposition_en_cours() {
+        return proposition_en_cours;
+    }
+
+    public int getTentatives() {
+        return tentatives;
+    }
+
+    public ArrayList<Integer> getResultat() {
+        return resultat;
+    }
+
     public static void main(String[] args) {
         Modele a = new Modele(5);
         a.combinaison();
