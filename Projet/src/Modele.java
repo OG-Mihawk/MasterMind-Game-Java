@@ -6,9 +6,9 @@ public class Modele {
     //Toutes les couleurs disponibles
     public static Color[] COULEURS = {Color.YELLOW, Color.GREEN,Color.BLUE,Color.MAGENTA,Color.RED,Color.ORANGE,Color.WHITE,Color.BLACK};
     //Nombre maximum de tentative
-    int NBR_MAX_TENTATIVES;
+    static int NBR_MAX_TENTATIVES=10;
     //Nombre de couleurs à trouver
-    public static  int DIFFICULTE;
+    public static  int DIFFICULTE=4;
     //Etat du jeu
     enum Etat {
         EN_COURS,GAGNÉ,PERDU

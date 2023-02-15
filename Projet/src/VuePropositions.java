@@ -10,11 +10,12 @@ public class VuePropositions extends Canvas {
     public void paint(Graphics g) {
         int x = 10;
         int y = 30;
-        super.paint(g);
-        if (nb >= 1) {
-            for (int i=nb;i>=1;i--) {
+        for(int j=0; j<Modele.NBR_MAX_TENTATIVES;j++){
+            for (int i=0;i<Modele.DIFFICULTE;i++) {
+                x = i*50;
+                y=j*50;
                 g.drawOval(x, y, 50, 50);
-                x +=60;
+
             }
         }
     }
