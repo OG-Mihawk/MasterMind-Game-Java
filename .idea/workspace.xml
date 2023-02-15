@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="530065c3-4340-405d-9bfd-59af7b48719e" name="Changes" comment="" />
+
+    <list default="true" id="530065c3-4340-405d-9bfd-59af7b48719e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projet/src/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projet/src/Vue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projet/src/VuePropositions.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projet/src/VuePropositions.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,10 +59,24 @@
       <workItem from="1675848167794" duration="115000" />
       <workItem from="1675848517601" duration="124000" />
       <workItem from="1676453922319" duration="44000" />
+
+      <workItem from="1676451665445" duration="533000" />
+      <workItem from="1676453652655" duration="60000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Projet/src/Vue.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
