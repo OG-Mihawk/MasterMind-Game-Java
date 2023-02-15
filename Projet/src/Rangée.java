@@ -15,7 +15,10 @@ public class Rangée {
         this.blancs = 0;
 
     }
-
+    public Color couleurs_choisi(int indice)
+    {
+        return this.jetons[indice];
+    }
     @Override
     public String toString() {
         return Arrays.toString(this.jetons);

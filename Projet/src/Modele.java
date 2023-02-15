@@ -25,9 +25,22 @@ public class Modele {
 
         return this.proposition;
     }
-    public void evaluer_propositions()
+    public String evaluer_propositions()
     {
-
+        int bien_placé = 0;
+        int mal_placé = 0;
+        for (int i = 0;i<DIFFICULTE;i++)
+        {
+            if (this.proposer.couleurs_choisi(i) == this.combinaison.couleurs_choisi(i))
+            {
+                bien_placé++;
+            }
+            else
+            {
+                mal_placé++;
+            }
+        }
+        return bien_placé +" "+ mal_placé;
     }
     public void completer_propositions(Color[] couleur)
     {
@@ -37,7 +50,7 @@ public class Modele {
         {
             this.proposer = new Rangée(this.couleurs_choisi);
             this.proposition.add(proposer);
-
+            System.out.println(evaluer_propositions());
             demarrer_nouvelle_propositions();
         }
     }
