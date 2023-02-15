@@ -121,7 +121,7 @@ public class Modele {
         this.DIFFICULTE = difficulté;
         this.état = Etat.EN_COURS;
     }
-    
+
     public static Color[] getCOULEURS() {
         return COULEURS;
     }
